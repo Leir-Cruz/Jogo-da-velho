@@ -37,6 +37,19 @@ int VerificaLinha( int matriz[3][3] )
 
 }
 
+int VerificaDiagonal( int matriz[3][3] )
+{
+	if(matriz[1][1] != 0) {
+		if(matriz[0][0] == matriz[1][1] && matriz[1][1] == matriz[2][2] ){
+			return matriz[1][1];
+		}
+		else if(matriz[2][0] == matriz[1][1] && matriz[1][1] == matriz[2][0]) {
+			return matriz[1][1];
+		}
+	}
+	return 0;
+}
+
 int VerificaVelha( int velha[3][3] )
 {
 	int ganhadorColuna = VerificaColuna(velha);
@@ -46,6 +59,10 @@ int VerificaVelha( int velha[3][3] )
 	int ganhadorLinha = VerificaLinha(velha);
 		if(ganhadorLinha != 0 ) {
 		return ganhadorLinha;
+	}
+	int ganhadorDiagonal = VerificaDiagonal(velha);
+	if(ganhadorDiagonal != 0 ) {
+		return ganhadorDiagonal;
 	}
 	return 0;
 }
