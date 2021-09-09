@@ -52,6 +52,10 @@ int VerificaDiagonal( int matriz[3][3] )
 
 int VerificaVelha( int velha[3][3] )
 {
+	int ganhadorDiagonal = VerificaDiagonal(velha);
+	if(ganhadorDiagonal != 0 ) {
+		return ganhadorDiagonal;
+	}
 	int ganhadorColuna = VerificaColuna(velha);
 	if(ganhadorColuna != 0 ) {
 		return ganhadorColuna;
@@ -59,10 +63,6 @@ int VerificaVelha( int velha[3][3] )
 	int ganhadorLinha = VerificaLinha(velha);
 		if(ganhadorLinha != 0 ) {
 		return ganhadorLinha;
-	}
-	int ganhadorDiagonal = VerificaDiagonal(velha);
-	if(ganhadorDiagonal != 0 ) {
-		return ganhadorDiagonal;
 	}
 	return 0;
 }
