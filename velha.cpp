@@ -40,16 +40,14 @@ int VerificaLinha( int matriz[3][3] )
 int VerificaVelha( int velha[3][3] )
 {
 	int ganhadorColuna = VerificaColuna(velha);
-	int ganhadorLinha = VerificaLinha(velha);
 	if(ganhadorColuna != 0 ) {
 		return ganhadorColuna;
 	}
-	else if(ganhadorLinha != 0) {
+	int ganhadorLinha = VerificaLinha(velha);
+		if(ganhadorLinha != 0 ) {
 		return ganhadorLinha;
 	}
-	else {
-		return 0;
-	}
+	return 0;
 }
 
 

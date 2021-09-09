@@ -1,7 +1,7 @@
         -:    0:Source:velha.cpp
         -:    0:Graph:velha.gcno
         -:    0:Data:velha.gcda
-        -:    0:Runs:4
+        -:    0:Runs:3
         -:    1:/**
         -:    2: * \file  velha.cpp
         -:    3: */
@@ -20,24 +20,40 @@
        12:   16:int VerificaColuna( int matriz[3][3] )
         -:   17:{
         -:   18:	
-       28:   19:	for(int j = 0; j < 3; j++){
-       28:   20:	    if (matriz[0][j] == matriz[1][j] && matriz[1][j] == matriz[2][j] && matriz[0][j] != 0) {
-       12:   21:	    	return matriz[0][j];
+       33:   19:	for(int j = 0; j < 3; j++){
+       30:   20:	    if (matriz[0][j] == matriz[1][j] && matriz[1][j] == matriz[2][j] && matriz[0][j] != 0) {
+        9:   21:	    	return matriz[0][j];
         -:   22:	    }
         -:   23:	}
-    #####:   24:	return false;
+        3:   24:	return false;
         -:   25:
         -:   26:}
         -:   27:
-       12:   28:int VerificaVelha( int velha[3][3] )
+       12:   28:int VerificaLinha( int matriz[3][3] )
         -:   29:{
-      12*:   30:	for(int j = 0; j < 3; j++) {
-       12:   31:		int ganhador = VerificaColuna(velha);
-       12:   32:		if(ganhador != 0) {
-       12:   33:			return ganhador;
-        -:   34:		}
+        -:   30:	
+       39:   31:	for(int i = 0; i < 3; i++){
+       30:   32:	    if (matriz[i][0] == matriz[i][1] && matriz[i][1] == matriz[i][2] && matriz[i][0] != 0) {
+        3:   33:	    	return matriz[i][0];
+        -:   34:	    }
         -:   35:	}
-    #####:   36:	return 0;
-        -:   37:}
-        -:   38:
+        9:   36:	return false;
+        -:   37:
+        -:   38:}
         -:   39:
+       12:   40:int VerificaVelha( int velha[3][3] )
+        -:   41:{
+       12:   42:	int ganhadorColuna = VerificaColuna(velha);
+       12:   43:	int ganhadorLinha = VerificaLinha(velha);
+       12:   44:	if(ganhadorColuna != 0 ) {
+        9:   45:		return ganhadorColuna;
+        -:   46:	}
+        3:   47:	else if(ganhadorLinha != 0) {
+        3:   48:		return ganhadorLinha;
+        -:   49:	}
+        -:   50:	else {
+    #####:   51:		return 0;
+        -:   52:	}
+        -:   53:}
+        -:   54:
+        -:   55:
