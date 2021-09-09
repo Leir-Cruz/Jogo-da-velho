@@ -1,0 +1,1 @@
+- Como o primeiro test case é relacionado ao X ganhando, farei uma função que verifica a vitória pela colunas;
