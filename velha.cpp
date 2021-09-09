@@ -25,15 +25,31 @@ int VerificaColuna( int matriz[3][3] )
 
 }
 
+int VerificaLinha( int matriz[3][3] )
+{
+	
+	for(int i = 0; i < 3; i++){
+	    if (matriz[i][0] == matriz[i][1] && matriz[i][1] == matriz[i][2] && matriz[i][0] != 0) {
+	    	return matriz[i][0];
+	    }
+	}
+	return false;
+
+}
+
 int VerificaVelha( int velha[3][3] )
 {
-	for(int j = 0; j < 3; j++) {
-		int ganhador = VerificaColuna(velha);
-		if(ganhador != 0) {
-			return ganhador;
-		}
+	int ganhadorColuna = VerificaColuna(velha);
+	int ganhadorLinha = VerificaLinha(velha);
+	if(ganhadorColuna != 0 ) {
+		return ganhadorColuna;
 	}
-	return 0;
+	else if(ganhadorLinha != 0) {
+		return ganhadorLinha;
+	}
+	else {
+		return 0;
+	}
 }
 
 
