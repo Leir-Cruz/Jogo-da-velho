@@ -29,6 +29,14 @@ TEST_CASE("Ganhar pela coluna", "[single-file]") {
     REQUIRE(VerificaVelha(teste3) == 1);
 }
 
+TEST_CASE("Ganhar pela linha", "[single-file]") {
+    int teste1[3][3]= { { 2, 2, 2 },
+                        { 2, 0, 1 },
+                        { 0, 2, 1 }
+                      };
+    REQUIRE(VerificaVelha(teste1) == 2);
+}
+
 
 
 
