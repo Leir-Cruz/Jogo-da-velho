@@ -10,7 +10,7 @@ velha.o : velha.cpp velha.hpp
 	
 	
 check: 
-	cppcheck --enable=warning .
+	cppcheck --enable=warning --force .
 	
 cpplint:
 	python3 ~/.local/lib/python3.8/site-packages/cpplint.py testa_velha.cpp

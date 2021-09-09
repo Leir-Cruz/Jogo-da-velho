@@ -1,1 +1,2 @@
 - Como o primeiro test case é relacionado ao X ganhando, farei uma função que verifica a vitória pela colunas;
+- Ao perceber que caso a coluna seja (0, 0, 0), o teste conta como "ganhador", refatoração de código para não contar como ganhador
