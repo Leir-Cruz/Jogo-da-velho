@@ -1,6 +1,7 @@
 
 /**
  * \file testa_velha.cpp
+ * Copyright 2021 Gabriel Cruz
  */
 
 #include "velha.hpp"
