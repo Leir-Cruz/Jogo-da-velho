@@ -76,6 +76,24 @@ TEST_CASE("indefinido", "[single-file]") {
                         { 1, 0, 0 }
                       };
     REQUIRE(VerificaVelha(teste1) == -1);
+
+    int teste2[3][3]= { { 0, 0, 0 },
+                        { 0, 0, 0 },
+                        { 1, 0, 0 }
+                      };
+    REQUIRE(VerificaVelha(teste2) == -1);
+
+    int teste3[3][3]= { { 0, 0, 0 },
+                        { 0, 0, 0 },
+                        { 0, 0, 0 }
+                      };
+    REQUIRE(VerificaVelha(teste3) == -1);
+
+    int teste4[3][3]= { { 1, 2, 1 },
+                        { 2, 2, 1 },
+                        { 1, 1, 2 }
+                      };
+    REQUIRE(VerificaVelha(teste4) == 0);
 }
 
 
