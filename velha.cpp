@@ -52,14 +52,14 @@ int VerificaNumeros(int matriz[3][3]) {
     int numX = 0;
     int numO = 0;
     for ( int i = 0; i < 3; i++ ) {
-        if (matriz[i][0] == 0 || matriz[i][1] == 0 || matriz[i][2] == 0) {
-            zeros++;
-        }
-        if (matriz[i][0] == 1 || matriz[i][1] == 1 || matriz[i][2] == 1) {
-            numX++;
-        }
-        if (matriz[i][0] == 2 || matriz[i][1] == 2 || matriz[i][2] == 2) {
-            numO++;
+        for ( int j = 0; j < 3; j++ ) {
+            if (matriz[i][j] == 1) {
+                numX++;
+            } else if (matriz[i][j] == 2) {
+                numO++;
+            } else {
+                zeros++;
+            }
         }
     }
     if (numO > numX + 1 || numX > numO + 1) {
