@@ -64,7 +64,7 @@ int VerificaNumeros(int matriz[3][3]) {
     }
     if (numO > numX + 1 || numX > numO + 1) {
         return -2;
-    }else if (zeros > 0) {
+    } else if (zeros > 0) {
         return -1;
     }
     return 0;
