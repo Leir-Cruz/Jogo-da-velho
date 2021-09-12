@@ -35,14 +35,24 @@ int VerificaColuna(int matriz[3][3]) {
 }
 
 int VerificaLinha(int matriz[3][3]) {
+    int primeiroGanhador = 0;
+    int segundoGanhador = 0;
     for ( int i = 0; i < 3; i++ ) {
         if ( matriz[i][0] != 0 ) {
             if (matriz[i][0] == matriz[i][1] && matriz[i][1] == matriz[i][2]) {
-                return matriz[i][0];
+                if (primeiroGanhador == 0) {
+                    primeiroGanhador =  matriz[i][0];
+                } else {
+                    segundoGanhador = matriz[i][0];
+                }                
             }
         }
     }
-    return false;
+    if (primeiroGanhador != 0 && segundoGanhador != 0) {
+        return -2;
+    } else {
+        return primeiroGanhador;
+    }
 }
 
 int VerificaDiagonal(int matriz[3][3]) {
