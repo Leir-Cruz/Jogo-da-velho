@@ -108,6 +108,12 @@ TEST_CASE("impossível pelas regras", "[single-file]") {
                         { 1, 2, 1 }
                       };
     REQUIRE(VerificaVelha(teste2) == -2);
+
+    int teste3[3][3]= { { 1, 0, 2 },
+                        { 1, 0, 2 },
+                        { 1, 0, 2 }
+                      };
+    REQUIRE(VerificaVelha(teste3) == -2);
 }
 
 

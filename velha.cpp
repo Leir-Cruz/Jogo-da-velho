@@ -14,14 +14,24 @@
  *  Descrever o que a funcao faz
  */ 
 int VerificaColuna(int matriz[3][3]) {
+    int primeiroGanhador = 0;
+    int segundoGanhador = 0;
     for ( int j = 0; j < 3; j++ ) {
         if ( matriz[0][j] != 0 ) {
             if (matriz[0][j] == matriz[1][j] && matriz[1][j] == matriz[2][j]) {
-                return matriz[0][j];
+                if (primeiroGanhador == 0) {
+                    primeiroGanhador =  matriz[0][j];
+                } else {
+                    segundoGanhador = matriz[0][j];
+                }
             }
         }
     }
-    return false;
+    if (primeiroGanhador != 0 && segundoGanhador != 0) {
+        return -2;
+    } else {
+        return primeiroGanhador;
+    }
 }
 
 int VerificaLinha(int matriz[3][3]) {
