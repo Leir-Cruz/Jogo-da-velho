@@ -123,6 +123,13 @@ TEST_CASE("Ganhar pela diagonal", "[single-file]") {
                         { 2, 0, 1 }
                       };
     REQUIRE(VerificaVelha(teste4) == 2);
+
+
+    int teste5[3][3]= { { 0, 1, 2 },
+                        { 1, 0, 0 },
+                        { 2, 0, 0 }
+                      };
+    REQUIRE(VerificaVelha(teste5) == -1);
 }
 
 TEST_CASE("indefinido", "[single-file]") {
