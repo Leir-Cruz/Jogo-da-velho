@@ -77,7 +77,7 @@ int VerificaNumeros(int matriz[3][3]) {
                 numX++;
             } else if (matriz[i][j] == 2) {
                 numO++;
-            } else if (matriz[i][j] == 0){
+            } else if (matriz[i][j] == 0) {
                 zeros++;
             } else {
                 return -2;
