@@ -1,2 +1,19 @@
-- Como o primeiro test case é relacionado ao X ganhando, farei uma função que verifica a vitória pela colunas;
-- Ao perceber que caso a coluna seja (0, 0, 0), o teste conta como "ganhador", refatoração de código para não contar como ganhador
+ O primeiro test case é feito para verificar os ganhadores pela coluna:
+    - Ele também deve ignorar uma coluna de "zeros" como uma coluna de possíveis ganhadores;
+    
+O segundo test case é feito para verifigar os ganhadores pela linha:
+    - Ele também deve ignorar uma linha de "zeros" como uma linha de possíveis ganhadores;
+
+O terceiro test case é feito para verifigar os ganhadores pela diagonal:
+    - Ele também deve ignorar uma linha de "zeros" como uma diagonal de possíveis ganhadores;
+
+O quarto test case é feito para verificar casos "indefinidos", no qual não poderia ser nem empate nem ganhador:
+    - Casos em que tem vários espaços vazios a serem preenchidos no jogo da velha;
+
+O quinta test case é feito par verificar empates:
+    - Casos no qual todos os espaços do jogo da velha foram preenchidos por 1 ou 2, mas não possui ganhador;
+
+O sexto test case é para retornar "-2" para casos que são impossíveis pela regras, tais como:
+    - Números além de 0, 1 ou 2 no jogo da velha;
+    - Uma quantidade anormal de 1 ou 2 no jogo da velha;
+    - Situações em que tem dois ganhadores simultâneamente;
