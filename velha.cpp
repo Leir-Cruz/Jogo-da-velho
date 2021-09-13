@@ -60,7 +60,7 @@ int VerificaDiagonal(int matriz[3][3]) {
         if ( matriz[0][0] == matriz[1][1] && matriz[1][1] == matriz[2][2] ) {
             return matriz[1][1];
         }
-        if (matriz[2][0] == matriz[1][1] && matriz[1][1] == matriz[2][0]) {
+        if (matriz[0][2] == matriz[1][1] && matriz[1][1] == matriz[2][0]) {
             return matriz[1][1];
         }
     }

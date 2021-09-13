@@ -28,6 +28,37 @@ TEST_CASE("Ganhar pela coluna", "[single-file]") {
                         { 0, 0, 1 }
                       };
     REQUIRE(VerificaVelha(teste3) == 1);
+
+    int teste4[3][3]= { { 2, 0, 1 },
+                        { 2, 0, 0 },
+                        { 2, 1, 1 }
+                      };
+    REQUIRE(VerificaVelha(teste4) == 2);
+
+    int teste5[3][3]= { { 2, 1, 0 },
+                        { 0, 1, 0 },
+                        { 2, 1, 2 }
+                      };
+    REQUIRE(VerificaVelha(teste5) == 1);
+
+
+    int teste6[3][3]= { { 1, 2, 0 },
+                        { 1, 0, 0 },
+                        { 1, 2, 2 }
+                      };
+    REQUIRE(VerificaVelha(teste6) == 1);
+
+    int teste7[3][3]= { { 1, 2, 0 },
+                        { 0, 2, 1 },
+                        { 1, 2, 0 }
+                      };
+    REQUIRE(VerificaVelha(teste7) == 2);
+
+    int teste8[3][3]= { { 1, 0, 2 },
+                        { 0, 1, 2 },
+                        { 1, 0, 2 }
+                      };
+    REQUIRE(VerificaVelha(teste8) == 2);
 }
 
 TEST_CASE("Ganhar pela linha", "[single-file]") {
@@ -48,6 +79,24 @@ TEST_CASE("Ganhar pela linha", "[single-file]") {
                         { 1, 1, 1 }
                       };
     REQUIRE(VerificaVelha(teste3) == 1);
+
+    int teste4[3][3]= { { 1, 1, 1 },
+                        { 2, 0, 2 },
+                        { 0, 0, 0 }
+                      };
+    REQUIRE(VerificaVelha(teste4) == 1);
+
+    int teste5[3][3]= { { 2, 1, 1 },
+                        { 2, 2, 2 },
+                        { 0, 0, 1 }
+                      };
+    REQUIRE(VerificaVelha(teste5) == 2);
+
+    int teste6[3][3]= { { 2, 1, 1 },
+                        { 0, 0, 1 },
+                        { 2, 2, 2 }
+                      };
+    REQUIRE(VerificaVelha(teste6) == 2);
 }
 
 TEST_CASE("Ganhar pela diagonal", "[single-file]") {
@@ -68,6 +117,12 @@ TEST_CASE("Ganhar pela diagonal", "[single-file]") {
                         { 1, 1, 2 }
                       };
     REQUIRE(VerificaVelha(teste3) == 1);
+
+    int teste4[3][3]= { { 1, 1, 2 },
+                        { 0, 2, 0 },
+                        { 2, 0, 1 }
+                      };
+    REQUIRE(VerificaVelha(teste4) == 2);
 }
 
 TEST_CASE("indefinido", "[single-file]") {
