@@ -151,6 +151,20 @@ TEST_CASE("indefinido", "[single-file]") {
     REQUIRE(VerificaVelha(teste4) == 0);
 }
 
+TEST_CASE("empate", "[single-file]") {
+    int teste1[3][3]= { { 1, 2, 1 },
+                        { 2, 2, 1 },
+                        { 1, 1, 2 }
+                      };
+    REQUIRE(VerificaVelha(teste1) == 0);
+
+    int teste2[3][3]= { { 1, 2, 2 },
+                        { 2, 1, 1 },
+                        { 2, 1, 2 }
+                      };
+    REQUIRE(VerificaVelha(teste2) == 0);
+}
+
 TEST_CASE("impossível pelas regras", "[single-file]") {
     int teste1[3][3]= { { 1, 1, 1 },
                         { 1, 1, 1 },
