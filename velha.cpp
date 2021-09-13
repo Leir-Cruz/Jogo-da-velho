@@ -8,10 +8,10 @@
 
 /** 
  * @brief verifica situacao do jogo da velha  
- * @author Programador 
- * @param  velha descreve o parametro
+ * @author Gabriel Cruz
+ * @param  velha é uma matriz 3x3 que sera de base para o jogo da velha 
  * 
- *  Descrever o que a funcao faz
+ *  a função Verifica uma matriz 3x3 a situacao do jogo da velha, o vencedor, caso empate, caso impossível pelas regras
  */ 
 int VerificaColuna(int matriz[3][3]) {
     int primeiroGanhador = 0;
@@ -44,7 +44,7 @@ int VerificaLinha(int matriz[3][3]) {
                     primeiroGanhador =  matriz[i][0];
                 } else {
                     segundoGanhador = matriz[i][0];
-                }                
+                }
             }
         }
     }
@@ -77,8 +77,10 @@ int VerificaNumeros(int matriz[3][3]) {
                 numX++;
             } else if (matriz[i][j] == 2) {
                 numO++;
-            } else {
+            } else if (matriz[i][j] == 0){
                 zeros++;
+            } else {
+                return -2;
             }
         }
     }

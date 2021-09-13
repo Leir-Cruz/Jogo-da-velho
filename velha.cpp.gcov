@@ -1,7 +1,7 @@
         -:    0:Source:velha.cpp
         -:    0:Graph:velha.gcno
         -:    0:Data:velha.gcda
-        -:    0:Runs:4
+        -:    0:Runs:1
         -:    0:Source is newer than graph
         -:    1:/**
         -:    2: * \file  velha.cpp
@@ -18,79 +18,99 @@
         -:   13: * 
         -:   14: *  Descrever o que a funcao faz
         -:   15: */ 
-       27:   16:int VerificaColuna(int matriz[3][3]) {
-       96:   17:    for ( int j = 0; j < 3; j++ ) {
-       77:   18:        if ( matriz[0][j] != 0 ) {
-       39:   19:            if (matriz[0][j] == matriz[1][j] && matriz[1][j] == matriz[2][j]) {
-        8:   20:                return matriz[0][j];
-        -:   21:            }
-        -:   22:        }
-        -:   23:    }
-       19:   24:    return false;
-        -:   25:}
-        -:   26:
-       19:   27:int VerificaLinha(int matriz[3][3]) {
-       70:   28:    for ( int i = 0; i < 3; i++ ) {
-       54:   29:        if ( matriz[i][0] != 0 ) {
-       25:   30:            if (matriz[i][0] == matriz[i][1] && matriz[i][1] == matriz[i][2]) {
-        3:   31:                return matriz[i][0];
-        -:   32:            }
-        -:   33:        }
+       12:   16:int VerificaColuna(int matriz[3][3]) {
+       12:   17:    int primeiroGanhador = 0;
+       12:   18:    int segundoGanhador = 0;
+       48:   19:    for ( int j = 0; j < 3; j++ ) {
+       36:   20:        if ( matriz[0][j] != 0 ) {
+       22:   21:            if (matriz[0][j] == matriz[1][j] && matriz[1][j] == matriz[2][j]) {
+        5:   22:                if (primeiroGanhador == 0) {
+        4:   23:                    primeiroGanhador =  matriz[0][j];
+        -:   24:                } else {
+        1:   25:                    segundoGanhador = matriz[0][j];
+        -:   26:                }
+        -:   27:            }
+        -:   28:        }
+        -:   29:    }
+       12:   30:    if (primeiroGanhador != 0 && segundoGanhador != 0) {
+        1:   31:        return -2;
+        -:   32:    } else {
+       11:   33:        return primeiroGanhador;
         -:   34:    }
-       16:   35:    return false;
-        -:   36:}
-        -:   37:
-       37:   38:int VerificaDiagonal(int matriz[3][3]) {
-       37:   39:    if ( matriz[1][1] != 0 ) {
-       20:   40:        if ( matriz[0][0] == matriz[1][1] && matriz[1][1] == matriz[2][2] ) {
-        4:   41:            return matriz[1][1];
-        -:   42:        }
-       16:   43:        if (matriz[2][0] == matriz[1][1] && matriz[1][1] == matriz[2][0]) {
-        6:   44:            return matriz[1][1];
-        -:   45:        }
-        -:   46:    }
-       27:   47:    return 0;
-        -:   48:}
-        -:   49:
-       52:   50:int VerificaNumeros(int matriz[3][3]) {
-       52:   51:    int zeros = 0;
-       52:   52:    int numX = 0;
-       52:   53:    int numO = 0;
-      208:   54:    for ( int i = 0; i < 3; i++ ) {
-      624:   55:        for ( int j = 0; j < 3; j++ ) {
-      468:   56:            if (matriz[i][j] == 1) {
-      184:   57:                numX++;
-      284:   58:            } else if (matriz[i][j] == 2) {
-      130:   59:                numO++;
-        -:   60:            } else {
-      154:   61:                zeros++;
-        -:   62:            }
-        -:   63:        }
-        -:   64:    }
-       52:   65:    if (numO > numX + 1 || numX > numO + 1) {
-       15:   66:        return -2;
-       37:   67:    } else if (zeros > 0) {
-       31:   68:        return -1;
-        -:   69:    }
-        6:   70:    return 0;
-        -:   71:}
-        -:   72:
-       52:   73:int VerificaVelha(int velha[3][3]) {
-       52:   74:    int indefinido = VerificaNumeros(velha);
-       52:   75:    if ( indefinido < -1 ) {
-       15:   76:        return indefinido;
-        -:   77:    }
-       37:   78:    int ganhadorDiagonal = VerificaDiagonal(velha);
-       37:   79:    if ( ganhadorDiagonal != 0 ) {
-       10:   80:        return ganhadorDiagonal;
-        -:   81:    }
-       27:   82:    int ganhadorColuna = VerificaColuna(velha);
-       27:   83:    if ( ganhadorColuna != 0 ) {
-        8:   84:        return ganhadorColuna;
-        -:   85:    }
-       19:   86:    int ganhadorLinha = VerificaLinha(velha);
-       19:   87:    if ( ganhadorLinha != 0 ) {
-        3:   88:       return ganhadorLinha;
+        -:   35:}
+        -:   36:
+        8:   37:int VerificaLinha(int matriz[3][3]) {
+        8:   38:    int primeiroGanhador = 0;
+        8:   39:    int segundoGanhador = 0;
+       32:   40:    for ( int i = 0; i < 3; i++ ) {
+       24:   41:        if ( matriz[i][0] != 0 ) {
+       13:   42:            if (matriz[i][0] == matriz[i][1] && matriz[i][1] == matriz[i][2]) {
+        5:   43:                if (primeiroGanhador == 0) {
+        4:   44:                    primeiroGanhador =  matriz[i][0];
+        -:   45:                } else {
+        1:   46:                    segundoGanhador = matriz[i][0];
+        -:   47:                }
+        -:   48:            }
+        -:   49:        }
+        -:   50:    }
+        8:   51:    if (primeiroGanhador != 0 && segundoGanhador != 0) {
+        1:   52:        return -2;
+        -:   53:    } else {
+        7:   54:        return primeiroGanhador;
+        -:   55:    }
+        -:   56:}
+        -:   57:
+       15:   58:int VerificaDiagonal(int matriz[3][3]) {
+       15:   59:    if ( matriz[1][1] != 0 ) {
+        7:   60:        if ( matriz[0][0] == matriz[1][1] && matriz[1][1] == matriz[2][2] ) {
+        1:   61:            return matriz[1][1];
+        -:   62:        }
+        6:   63:        if (matriz[2][0] == matriz[1][1] && matriz[1][1] == matriz[2][0]) {
+        2:   64:            return matriz[1][1];
+        -:   65:        }
+        -:   66:    }
+       12:   67:    return 0;
+        -:   68:}
+        -:   69:
+       17:   70:int VerificaNumeros(int matriz[3][3]) {
+       17:   71:    int zeros = 0;
+       17:   72:    int numX = 0;
+       17:   73:    int numO = 0;
+       68:   74:    for ( int i = 0; i < 3; i++ ) {
+      204:   75:        for ( int j = 0; j < 3; j++ ) {
+      153:   76:            if (matriz[i][j] == 1) {
+       59:   77:                numX++;
+       94:   78:            } else if (matriz[i][j] == 2) {
+       43:   79:                numO++;
+        -:   80:            } else {
+       51:   81:                zeros++;
+        -:   82:            }
+        -:   83:        }
+        -:   84:    }
+       17:   85:    if (numO > numX + 1 || numX > numO + 1) {
+        2:   86:        return -2;
+       15:   87:    } else if (zeros > 0) {
+       13:   88:        return -1;
         -:   89:    }
-       16:   90:    return indefinido;
+        2:   90:    return 0;
         -:   91:}
+        -:   92:
+       17:   93:int VerificaVelha(int velha[3][3]) {
+       17:   94:    int indefinido = VerificaNumeros(velha);
+       17:   95:    if ( indefinido < -1 ) {
+        2:   96:        return indefinido;
+        -:   97:    }
+       15:   98:    int ganhadorDiagonal = VerificaDiagonal(velha);
+       15:   99:    if ( ganhadorDiagonal != 0 ) {
+        3:  100:        return ganhadorDiagonal;
+        -:  101:    }
+       12:  102:    int ganhadorColuna = VerificaColuna(velha);
+       12:  103:    if ( ganhadorColuna != 0 ) {
+        4:  104:        return ganhadorColuna;
+        -:  105:    }
+        8:  106:    int ganhadorLinha = VerificaLinha(velha);
+        8:  107:    if ( ganhadorLinha != 0 ) {
+        4:  108:       return ganhadorLinha;
+        -:  109:    }
+        4:  110:    return indefinido;
+        -:  111:}
